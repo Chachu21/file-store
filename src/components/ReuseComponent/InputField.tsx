@@ -24,26 +24,32 @@ function InputField({
   handleChange,
 }: InputFieldProps) {
   return (
-    <div className="flex flex-col space-y-1  rounded-[12px] shadow-md max-w-[580px] pl-2 h-[78px]">
-      <label htmlFor={id} className="text-sm font-normal">
-        {label}
-      </label>
-      <input
-        id={id}
-        name={name}
-        value={value}
-        type={type}
-        placeholder={placeholder}
-        required={required}
-        onChange={handleChange}
-        className={`outline-none ${
-          errorMessage ? "border-red-500" : ""
-        } placeholder:text-sm placeholder:font-normal placeholder:opacity-50`}
-      />
+    <>
+      <div
+        className={` rounded-[12px] shadow-md max-w-[580px]   h-[100px] ${
+          errorMessage ? "border border-[#FF7474]" : ""
+        }`}
+      >
+        <div className="pl-4 py-3 flex flex-col space-y-2 ">
+          <label htmlFor={id} className="text-sm font-normal">
+            {label}
+          </label>
+          <input
+            id={id}
+            name={name}
+            value={value}
+            type={type}
+            placeholder={placeholder}
+            required={required}
+            onChange={handleChange}
+            className={`outline-none placeholder:text-sm placeholder:font-normal placeholder:opacity-50`}
+          />
+        </div>
+      </div>
       {errorMessage && (
-        <span className="text-red-500 text-sm">{errorMessage}</span>
+        <span className="text-[#FF7474] text-sm pl-2">{errorMessage}</span>
       )}
-    </div>
+    </>
   );
 }
 
